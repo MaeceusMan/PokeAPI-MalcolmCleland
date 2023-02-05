@@ -1,2 +1,11 @@
-import './bootstrap';
-Vue.component('pokemon-list', require('./components/PokemonList.vue').default);
+import axios from 'axios';
+
+const Vue = require('vue');
+const PokemonList = require('./components/PokemonList.vue').default;
+
+new Vue({
+  el: '#app',
+  components: {
+    PokemonList
+  }
+});
