@@ -1,3 +1,5 @@
+// I suspect the source of my vue.js errors is here
+
 import axios from 'axios';
 
 const Vue = require('vue');

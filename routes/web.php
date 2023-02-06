@@ -18,6 +18,10 @@ use App\Http\Controllers\PokemonController;
 Route::get('pokemon', [PokemonController::class, 'index']);
 
 Route::get('/pokemon/import', 'App\Http\Controllers\PokemonController@import');
-Route::get('/pokemon/{id}/edit', 'PokemonController@edit');
-Route::put('/pokemon/{id}', 'PokemonController@update');
-Route::delete('/pokemon/{id}', 'PokemonController@delete');
+
+// index route
+Route::get('/pokemon', 'App\Http\Controllers\PokemonController@index')->name('pokemon.index');
+
+// tentative update and delete routes
+Route::put('/pokemon/{id}', 'PokemonController@update')->name('pokemon.update');
+Route::delete('/pokemon/{id}', 'PokemonController@delete')->name('pokemon.delete');

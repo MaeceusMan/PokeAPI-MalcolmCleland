@@ -1,4 +1,6 @@
-<template>
+<!-- An old attempt to get paginated code working. Did not work. -->
+
+<!-- <template>
     <div>
         <table>
             <thead>
@@ -74,4 +76,4 @@
     td {
         border: 1px solid black;
     }
-</style>
+</style> -->

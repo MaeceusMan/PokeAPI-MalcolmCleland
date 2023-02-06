@@ -33,33 +33,30 @@ class PokemonController extends Controller
 
             return Pokemon::all();
      }
-
-    public function index()
-    {
-        $pokemon = Pokemon::all();
-        return view('pokemon', compact('pokemon'));
-    }
-
-    public function edit($id)
-    {
-        $pokemon = Pokemon::find($id);
-        return view('edit', compact('pokemon'));
-    }
-
+     
+    // update and delete methods
     public function update(Request $request, $id)
     {
         $pokemon = Pokemon::find($id);
-        $pokemon->name = $request->name;
-        $pokemon->pokedex_number = $request->pokedex_number;
-        $pokemon->sprite = $request->sprite;
+        $pokemon->name = $request->get('name');
+        $pokemon->pokedex_number = $request->get('pokedex_number');
+        $pokemon->sprite = $request->get('sprite');
         $pokemon->save();
-        return redirect('/pokemon');
+
+        return redirect('/pokemon')->with('success', 'Pokemon updated!');
     }
 
     public function delete($id)
     {
         $pokemon = Pokemon::find($id);
         $pokemon->delete();
-        return redirect('/pokemon');
+
+        return redirect('/pokemon')->with('success', 'Pokemon deleted!');
+    }
+
+    public function index()
+    {
+        $pokemon = Pokemon::all();
+        return view('pokemon', compact('pokemon'));
     }
 }
